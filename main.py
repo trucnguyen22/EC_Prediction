@@ -12,17 +12,16 @@ from plotly import graph_objs as go
 
 color_pal = sns.color_palette()
 plt.style.use('fivethirtyeight')
-
 st.title('Xây dựng mô hình dự đoán năng lượng tiêu thụ (Đơn vị: MegaWatt)')
 
+
 # Plot Data Function
-
-
 def plot_raw_data(df):
     fig = go.Figure()
     fig.add_trace(go.Scatter(x=df.iloc[:, 0], y=df.iloc[:, 1]))
-    fig.layout.update(
-        title_text='Time Series data with Rangeslider', xaxis_rangeslider_visible=True)
+    title_text = 'Dữ liệu năng lượng tiêu thụ ban đầu' if df.columns[
+        1] == 'Năng lượng' else 'Dữ liệu năng lượng được dự đoán'
+    fig.layout.update(title_text=title_text, xaxis_rangeslider_visible=True)
     st.plotly_chart(fig)
 
 
@@ -34,3 +33,7 @@ plot_raw_data(df)
 # Predicted Data
 df_pred = pd.read_csv('./PredictOP.csv')
 plot_raw_data(df_pred)
+
+# Week Data
+df_week = pd.read_csv('./WeekData.csv')
+plot_raw_data(df_week)

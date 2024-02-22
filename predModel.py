@@ -31,8 +31,10 @@ ax.axvline('01-01-2015', color='black', ls='--')
 ax.legend(['Bộ Huấn luyện', 'Bộ Kiểm tra'])
 
 
-df.loc[(df.index > '01-01-2010') & (df.index < '01-08-2010')] \
+# Week data
+df_week = df.loc[(df.index > '01-01-2010') & (df.index < '01-08-2010')] \
     .plot(figsize=(15, 5), title='Dữ liệu theo Tuần')
+df_week.to_csv('PredictOP.csv')
 
 
 def create_features(df):

@@ -2,7 +2,7 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
-import matplotlib.pyplot as plt
+# import matplotlib.pyplot as plt
 import seaborn as sns
 import pickle
 
@@ -11,7 +11,7 @@ from plotly import graph_objs as go
 
 
 color_pal = sns.color_palette()
-plt.style.use('fivethirtyeight')
+# plt.style.use('fivethirtyeight')
 
 st.title('Xây dựng mô hình dự đoán năng lượng tiêu thụ (Đơn vị: MegaWatt)')
 

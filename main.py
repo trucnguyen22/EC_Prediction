@@ -36,5 +36,4 @@ plot_raw_data(df_pred)
 
 # Week Data
 df_week = pd.read_csv('./WeekData.csv')
-df_week.sort_values(by='Thời gian')
 plot_raw_data(df_week)

@@ -11,7 +11,7 @@ color_pal = sns.color_palette()
 plt.style.use('fivethirtyeight')
 
 # types of time series data
-df = pd.read_csv('./PJME_hourly.csv')
+df = pd.read_csv('./Data/Sorted_PJME_hourly.csv')
 df = df.set_index('Thời gian')
 df.index = pd.to_datetime(df.index)
 df.plot(style='.',
@@ -30,11 +30,9 @@ test.plot(ax=ax, label='Bộ Kiểm tra')
 ax.axvline('01-01-2015', color='black', ls='--')
 ax.legend(['Bộ Huấn luyện', 'Bộ Kiểm tra'])
 
-
 # Week data
-df_week = df.loc[(df.index > '01-01-2010') & (df.index < '01-08-2010')] \
+df.loc[(df.index > '01-01-2010') & (df.index < '01-08-2010')] \
     .plot(figsize=(15, 5), title='Dữ liệu theo Tuần')
-df_week.to_csv('PredictOP.csv')
 
 
 def create_features(df):
@@ -91,4 +89,4 @@ ax.set_title('Dữ liệu và Dự đoán thô')
 
 # raw prediction data
 df_prediction = df['prediction'].loc[df.index >= '01-01-2015']
-df_prediction.to_csv('PredictOP.csv')
+df_prediction.to_csv('Data/YearData.csv')

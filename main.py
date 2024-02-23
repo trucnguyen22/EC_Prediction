@@ -26,14 +26,15 @@ def plot_raw_data(df):
 
 
 # Initial Data
-df = pd.read_csv('./Sorted_PJME_hourly.csv')
+df = pd.read_csv('./Data/Sorted_PJME_hourly.csv')
 plot_raw_data(df)
 
 
 # Predicted Data
-df_pred = pd.read_csv('./YearData.csv')
+df_pred = pd.read_csv('./Data/YearData.csv')
 plot_raw_data(df_pred)
 
+
 # Week Data
-df_week = pd.read_csv('./WeekData.csv')
+df_week = pd.read_csv('./Data/WeekData.csv')
 plot_raw_data(df_week)

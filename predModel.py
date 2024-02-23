@@ -11,6 +11,7 @@ color_pal = sns.color_palette()
 plt.style.use('fivethirtyeight')
 
 # types of time series data
+# read raw data file
 df = pd.read_csv('./Data/Sorted_PJME_hourly.csv')
 df = df.set_index('Thời gian')
 df.index = pd.to_datetime(df.index)
@@ -87,6 +88,6 @@ df['prediction'].plot(ax=ax, style='.')
 plt.legend(['Dữ liệu chuẩn', 'Dữ liệu được dự đoán'])
 ax.set_title('Dữ liệu và Dự đoán thô')
 
-# raw prediction data
+# write prediction data file
 df_prediction = df['prediction'].loc[df.index >= '01-01-2015']
 df_prediction.to_csv('Data/YearData.csv')

@@ -26,7 +26,7 @@ def plot_raw_data(df):
 
 
 # Initial Data
-df = pd.read_csv('./Data/RawData.csv')
+df = pd.read_csv('./Data/SortData.csv')
 plot_raw_data(df)
 
 

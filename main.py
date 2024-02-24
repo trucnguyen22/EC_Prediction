@@ -15,30 +15,21 @@ color_pal = sns.color_palette()
 plt.style.use('fivethirtyeight')
 st.title('Xây dựng mô hình dự đoán')
 st.subheader('Mô hình dự đoán năng lượng tiêu thụ (Đơn vị: MegaWatt)')
-st.markdown("# main")
-st.sidebar.markdown(
-    "My Logo (sidebar) should be on top of the Navigation within the sidebar"
-)
 
 
-def add_logo_tdn():
-    st.markdown(
+def add_logo_to_sidebar():
+    st.sidebar.markdown(
         """
         <style>
-            [data-testid="stSidebarNav"] {
-                background-image: url(http://placekitten.com/200/200);
-                background-repeat: no-repeat;
-                padding-top: 120px;
-                background-position: 20px 20px;
+            /* Add your CSS styles here */
+            .sidebar-content {
+                /* Optional: Adjust padding and margins */
+                padding-top: 50px;
             }
-            [data-testid="stSidebarNav"]::before {
-                content: "My Company Name";
-                margin-left: 20px;
-                margin-top: 20px;
-                font-size: 30px;
-                position: relative;
-                top: 100px;
-                color: white; /* Optional: Change text color */
+            .sidebar-content:before {
+                content: url(http://placekitten.com/200/200);
+                display: block;
+                margin-bottom: 20px; /* Optional: Adjust margin */
             }
         </style>
         """,
@@ -46,7 +37,13 @@ def add_logo_tdn():
     )
 
 
-add_logo_tdn
+# Call the function to add the logo to the sidebar
+add_logo_to_sidebar()
+st.sidebar.markdown(
+    "My Logo (sidebar) should be on top of the Navigation within the sidebar",
+
+)
+
 
 st.sidebar.text('')
 st.sidebar.text('')

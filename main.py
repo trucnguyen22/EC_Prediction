@@ -26,6 +26,7 @@ select_time = st.slider(
     value=(datetime(2002, 1, 1, 1, 00), datetime(2018, 8, 3, 0, 00)),)
 # format="MM/DD/YY - hh:mm")
 st.write("Start time:", select_time[0], select_time[1])
+print(select_time[0], select_time[1])
 
 
 # Plot Data Function
@@ -38,10 +39,13 @@ def plot_raw_data(df, filtered_df):
 
 # Initial Data
 df = pd.read_csv('./Data/SortData.csv')
+df['Thời gian'] = pd.to_datetime(df['Thời gian'])
 # Filter data based on date range
-filtered_df = df[(df.index >= select_time[0]) & (df.index <= select_time[1])]
+filtered_df = df[(df['Thời gian'] >= select_time[0])
+                 & (df['Thời gian'] <= select_time[1])]
 st.header('Năng lượng tiêu thụ ban đầu')
-plot_raw_data(df)
+print(df.index)
+plot_raw_data(df, filtered_df)
 
 '''
 # Predicted Data

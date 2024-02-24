@@ -12,7 +12,7 @@ from plotly import graph_objs as go
 
 color_pal = sns.color_palette()
 plt.style.use('fivethirtyeight')
-st.title('Xây dựng mô hình dự đoán', divider='black')
+st.title('Xây dựng mô hình dự đoán')
 st.subheader('Mô hình dự đoán năng lượng tiêu thụ (Đơn vị: MegaWatt)')
 
 
@@ -50,7 +50,8 @@ st.header('Năng lượng tiêu thụ ban đầu')
 plot_raw_data(filtered_df)
 
 
-st.divider()  # 👈 Draws a horizontal rule
+st.markdown("""<hr style="border-top: 2px solid yellow;">""",
+            unsafe_allow_html=True)  # 👈 Draws a horizontal rule
 
 
 # Predicted Data

@@ -17,32 +17,15 @@ st.title('Xây dựng mô hình dự đoán')
 st.subheader('Mô hình dự đoán năng lượng tiêu thụ (Đơn vị: MegaWatt)')
 
 
-def add_logo_to_sidebar():
-    st.sidebar.markdown(
-        """
-        <style>
-            /* Add your CSS styles here */
-            .sidebar-content {
-                /* Optional: Adjust padding and margins */
-                padding-top: 50px;
-            }
-            .sidebar-content:before {
-                content: url(http://placekitten.com/200/200);
-                display: block;
-                margin-bottom: 20px; /* Optional: Adjust margin */
-            }
-        </style>
-        """,
-        unsafe_allow_html=True,
-    )
+def example():
+    if st.checkbox("Use url", value=True):
+        add_logo("http://placekitten.com/120/120")
+    else:
+        add_logo("gallery/kitty.jpeg", height=300)
+    st.write("👈 Check out the cat in the nav-bar!")
 
 
-# Call the function to add the logo to the sidebar
-add_logo_to_sidebar()
-st.sidebar.markdown(
-    "My Logo (sidebar) should be on top of the Navigation within the sidebar",
-
-)
+example()
 
 
 st.sidebar.text('')

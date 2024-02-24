@@ -12,7 +12,8 @@ from plotly import graph_objs as go
 
 color_pal = sns.color_palette()
 plt.style.use('fivethirtyeight')
-st.title('Xây dựng mô hình dự đoán năng lượng tiêu thụ (Đơn vị: MegaWatt)')
+st.title('Xây dựng mô hình dự đoán', divider='black')
+st.subheader('Mô hình dự đoán năng lượng tiêu thụ (Đơn vị: MegaWatt)')
 
 
 st.sidebar.text('')
@@ -20,7 +21,7 @@ st.sidebar.text('')
 st.sidebar.text('')
 
 
-st.file_uploader('File uploader')
+st.file_uploader('Tệp dữ liệu cần được dự đoán')
 
 
 # Plot Data Function
@@ -47,6 +48,9 @@ filtered_df = df[(df['Thời gian'] >= select_time[0]) &
                  (df['Thời gian'] <= select_time[1])]
 st.header('Năng lượng tiêu thụ ban đầu')
 plot_raw_data(filtered_df)
+
+
+st.divider()  # 👈 Draws a horizontal rule
 
 
 # Predicted Data

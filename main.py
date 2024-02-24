@@ -74,5 +74,5 @@ st.write("Start time:", select_time_prediction[0], select_time_prediction[1])
 # Filter data based on date range
 filtered_df_prediction = df_prediction[(df_prediction['Thời gian'] >= select_time_prediction[0]) &
                                        (df_prediction['Thời gian'] <= select_time_prediction[1])]
-st.header('Năng lượng tiêu thụ ban đầu')
+st.header('Năng lượng tiêu thụ được dự đoán')
 st.write(filtered_df_prediction)

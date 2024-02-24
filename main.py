@@ -45,8 +45,11 @@ df = pd.read_csv('./Data/SortData.csv')
 df['Thời gian'] = pd.to_datetime(df['Thời gian'])
 start_date = df['Thời gian'].min()
 end_date = df['Thời gian'].max()
-select_time = st.slider("Select time range:", start_date,
-                        end_date, (start_date, end_date))
+select_time = st.slider(
+    "When do you start?",
+    value=[start_date, end_date])
+# format="MM/DD/YY - hh:mm")
+st.write("Start time:", select_time[0], select_time[1])
 # Filter data based on date range
 filtered_df = df[(df['Thời gian'] >= select_time[0])
                  & (df['Thời gian'] <= select_time[1])]

@@ -64,11 +64,11 @@ st.write(filtered_df)
 df_prediction = pd.read_csv('./Data/PredData.csv')
 # Create Streamlit slider for selecting date range
 df_prediction['Thời gian'] = pd.to_datetime(df_prediction['Thời gian'])
-start_date = df_prediction['Thời gian'].min().to_pydatetime()
-end_date = df_prediction['Thời gian'].max().to_pydatetime()
+start_date_prediction = df_prediction['Thời gian'].min().to_pydatetime()
+end_date_prediction = df_prediction['Thời gian'].max().to_pydatetime()
 select_time_prediction = st.slider(
     "When do you start?",
-    value=(start_date, end_date),
+    value=(start_date_prediction, end_date_prediction),
 )
 st.write("Start time:", select_time_prediction[0], select_time_prediction[1])
 # Filter data based on date range

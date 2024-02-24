@@ -21,11 +21,11 @@ st.sidebar.text('')
 
 
 st.date_input('Date input')
-start_time = st.slider(
+select_time = st.slider(
     "When do you start?",
-    value=(datetime(2002, 1, 1, 1, 00), datetime(2018, 8, 3, 0, 00)),
-    format="MM/DD/YY - hh:mm")
-st.write("Start time:", start_time)
+    value=(datetime(2002, 1, 1, 1, 00), datetime(2018, 8, 3, 0, 00)),)
+# format="MM/DD/YY - hh:mm")
+st.write("Start time:", select_time[0], select_time[1])
 
 
 # Plot Data Function

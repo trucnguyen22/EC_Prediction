@@ -8,17 +8,55 @@ import pickle
 
 from datetime import datetime, time
 from plotly import graph_objs as go
+from streamlit_extras.app_logo import add_logo
 
 
 color_pal = sns.color_palette()
 plt.style.use('fivethirtyeight')
 st.title('Xây dựng mô hình dự đoán')
 st.subheader('Mô hình dự đoán năng lượng tiêu thụ (Đơn vị: MegaWatt)')
+st.markdown("# main")
+st.sidebar.markdown(
+    "My Logo (sidebar) should be on top of the Navigation within the sidebar"
+)
 
 
+def add_logo_tdn():
+    st.markdown(
+        """
+        <style>
+            [data-testid="stSidebarNav"] {
+                background-image: url(http://placekitten.com/200/200);
+                background-repeat: no-repeat;
+                padding-top: 120px;
+                background-position: 20px 20px;
+            }
+            [data-testid="stSidebarNav"]::before {
+                content: "My Company Name";
+                margin-left: 20px;
+                margin-top: 20px;
+                font-size: 30px;
+                position: relative;
+                top: 100px;
+                color: white; /* Optional: Change text color */
+            }
+        </style>
+        """,
+        unsafe_allow_html=True,
+    )
+
+
+add_logo_tdn
+
 st.sidebar.text('')
 st.sidebar.text('')
 st.sidebar.text('')
+# add sidebar buttons
+st.sidebar.button("Button")
+st.sidebar.button("Button 2")
+# add sidebar filters
+st.sidebar.slider("Slider", 0, 100, 50)
+st.sidebar.date_input("Date Input")
 
 
 st.file_uploader('Tệp dữ liệu cần được dự đoán')

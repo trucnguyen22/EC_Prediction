@@ -58,6 +58,7 @@ filtered_df = df[(df['Thời gian'] >= select_time[0]) &
                  (df['Thời gian'] <= select_time[1])]
 st.header('Năng lượng tiêu thụ ban đầu')
 st.write(filtered_df)
+st.line_chart(filtered_df)
 
 
 # Predicted Data
@@ -76,3 +77,4 @@ filtered_df_prediction = df_prediction[(df_prediction['Thời gian'] >= select_t
                                        (df_prediction['Thời gian'] <= select_time_prediction[1])]
 st.header('Năng lượng tiêu thụ được dự đoán')
 st.write(filtered_df_prediction)
+st.line_chart(filtered_df_prediction)

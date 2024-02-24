@@ -50,8 +50,7 @@ st.header('Năng lượng tiêu thụ ban đầu')
 plot_raw_data(filtered_df)
 
 
-st.markdown("""<hr style="border-top: 2px solid yellow;">""",
-            unsafe_allow_html=True)  # 👈 Draws a horizontal rule
+# st.markdown("""<hr style="border-top: 2px solid yellow;">""",unsafe_allow_html=True)  # 👈 Draws a horizontal rule
 
 
 # Predicted Data

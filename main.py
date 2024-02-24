@@ -32,17 +32,17 @@ st.write("Start time:", select_time[0], select_time[1])
 def plot_raw_data(df):
     fig = go.Figure()
     fig.add_trace(go.Scatter(x=df.iloc[:, 0], y=df.iloc[:, 1]))
-    title_text = 'Dữ liệu năng lượng tiêu thụ ban đầu' if df.columns[
-        1] == 'Năng lượng' else 'Dữ liệu năng lượng được dự đoán'
-    fig.layout.update(title_text=title_text, xaxis_rangeslider_visible=True)
+    fig.layout.update(xaxis_rangeslider_visible=True)
     st.plotly_chart(fig)
 
 
 # Initial Data
 df = pd.read_csv('./Data/SortData.csv')
+st.header('Năng lượng tiêu thụ ban đầu')
 plot_raw_data(df)
 
 
 # Predicted Data
 df_pred = pd.read_csv('./Data/PredData.csv')
+st.header('Năng lượng tiêu thụ được dự đoán')
 plot_raw_data(df_pred)

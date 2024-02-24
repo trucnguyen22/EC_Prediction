@@ -32,14 +32,12 @@ print(select_time[0], select_time[1])
 '''
 
 
-'''
 # Plot Data Function
-def plot_raw_data(df, filtered_df):
+def plot_raw_data(df):
     fig = go.Figure()
-    fig.add_trace(go.Scatter(x=filtered_df, y=df.iloc[:, 1]))
+    fig.add_trace(go.Scatter(x=df.iloc[:, 0], y=df.iloc[:, 1]))
     fig.layout.update(xaxis_rangeslider_visible=True)
     st.plotly_chart(fig)
-'''
 
 
 # Initial Data
@@ -57,8 +55,7 @@ st.write("Start time:", select_time[0], select_time[1])
 filtered_df = df[(df['Thời gian'] >= select_time[0]) &
                  (df['Thời gian'] <= select_time[1])]
 st.header('Năng lượng tiêu thụ ban đầu')
-st.write(filtered_df)
-st.line_chart(filtered_df)
+plot_raw_data(filtered_df)
 
 
 # Predicted Data
@@ -76,5 +73,4 @@ st.write("Start time:", select_time_prediction[0], select_time_prediction[1])
 filtered_df_prediction = df_prediction[(df_prediction['Thời gian'] >= select_time_prediction[0]) &
                                        (df_prediction['Thời gian'] <= select_time_prediction[1])]
 st.header('Năng lượng tiêu thụ được dự đoán')
-st.write(filtered_df_prediction)
-st.line_chart(filtered_df_prediction)
+plot_raw_data(filtered_df_prediction)

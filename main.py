@@ -45,6 +45,7 @@ def plot_raw_data(df, filtered_df):
 # Initial Data
 df = pd.read_csv('./Data/SortData.csv')
 # Create Streamlit slider for selecting date range
+df['Thời gian'] = pd.to_datetime(df['Thời gian'])
 start_date = df['Thời gian'].min().to_pydatetime()
 end_date = df['Thời gian'].max().to_pydatetime()
 select_time = st.slider(

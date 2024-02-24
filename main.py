@@ -14,6 +14,12 @@ color_pal = sns.color_palette()
 plt.style.use('fivethirtyeight')
 st.title('Xây dựng mô hình dự đoán năng lượng tiêu thụ (Đơn vị: MegaWatt)')
 
+
+st.sidebar.text('')
+st.sidebar.text('')
+st.sidebar.text('')
+
+
 st.date_input('Date input')
 start_time = st.slider(
     "When do you start?",

@@ -60,9 +60,19 @@ st.header('Năng lượng tiêu thụ ban đầu')
 st.write(filtered_df)
 
 
-'''
 # Predicted Data
-df_pred = pd.read_csv('./Data/PredData.csv')
-st.header('Năng lượng tiêu thụ được dự đoán')
-plot_raw_data(df_pred)
-'''
+df_prediction = pd.read_csv('./Data/PredData.csv')
+# Create Streamlit slider for selecting date range
+df_prediction['Thời gian'] = pd.to_datetime(df_prediction['Thời gian'])
+start_date = df_prediction['Thời gian'].min().to_pydatetime()
+end_date = df_prediction['Thời gian'].max().to_pydatetime()
+select_time_prediction = st.slider(
+    "When do you start?",
+    value=(start_date, end_date),
+)
+st.write("Start time:", select_time_prediction[0], select_time_prediction[1])
+# Filter data based on date range
+filtered_df_prediction = df_prediction[(df_prediction['Thời gian'] >= select_time_prediction[0]) &
+                                       (df_prediction['Thời gian'] <= select_time_prediction[1])]
+st.header('Năng lượng tiêu thụ ban đầu')
+st.write(filtered_df_prediction)

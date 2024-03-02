@@ -5,10 +5,10 @@ import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
 import pickle
+import Model_XGBoost
 
 from datetime import datetime, time
 from plotly import graph_objs as go
-from streamlit_extras.app_logo import add_logo
 
 color_pal = sns.color_palette()
 plt.style.use('fivethirtyeight')
@@ -35,8 +35,10 @@ st.sidebar.button("Button2")
 
 uploaded_file = st.file_uploader('Tệp dữ liệu cần được dự đoán')
 if uploaded_file is not None:
-    df = pd.read_csv(uploaded_file)
+    df_name = uploaded_file
+    df_input = pd.read_csv(uploaded_file)
 
+Model_XGBoost.process(df_name, df_input)
 
 # ----------------------------------------------------
 # Plot Data Function
@@ -52,8 +54,8 @@ def plotData(df):
 # ----------------------------------------------------
 # Initial Data
 
-
-df = pd.read_csv('./Data/PJME_SortData.csv')
+# df = pd.read_csv('./Data/PJME_SortData.csv')
+df = pd.read_csv('./Data/Sort_{df_name}.csv')
 df['Thời gian'] = pd.to_datetime(df['Thời gian'])
 select_time = st.slider(
     "When do you start?",
@@ -70,7 +72,8 @@ plotData(filtered_df)
 # Predicted Data
 
 
-df_prediction = pd.read_csv('./Data/PJME_PredData.csv')
+# df_prediction = pd.read_csv('./Data/PJME_PredData.csv')
+df_prediction = pd.read_csv('./Data/Pred_{df_name}.csv')
 df_prediction['Thời gian'] = pd.to_datetime(df_prediction['Thời gian'])
 select_time_prediction = st.slider(
     "When do you start?",
